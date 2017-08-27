@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/container_details"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:text="Create shop"
+                    style="@style/form_header" />
+
+                <TextView
+                    android:text="Shop Sales Information"
+                    style="@style/form_subheader" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container_details">
+
+                <TextView
+                    android:text="Offered water containers"
+                    style="@style/form_label" />
+
+                <TextView
+                    android:id="@+id/txt_container_types_validation"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:text="@string/container_types_validation_text"
+                    style="@style/validation_text_vll" />
+
+                <GridLayout
+                    android:columnCount="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/chk_round"
+                        android:text="Round"
+                        android:buttonTint="@color/colorAccent"
+                        android:layout_columnWeight="1"/>
+
+                    <CheckBox
+                        android:id="@+id/chk_slim"
+                        android:text="Slim"
+                        android:buttonTint="@color/colorAccent"
+                        android:layout_columnWeight="1"/>
+
+                </GridLayout>
+
+                <CheckBox
+                    android:id="@+id/chk_allow_swap"
+                    android:buttonTint="@color/colorAccent"
+                    android:text="Allow container swapping"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:text="Offered water types"
+                    style="@style/form_label" />
+
+                <TextView
+                    android:id="@+id/txt_water_types_validation"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:text="@string/water_types_validation_text"
+                    style="@style/validation_text_vll" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/chk_distilled"
+                        android:text="Distilled"
+                        android:buttonTint="@color/colorAccent"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+
+                    <EditText
+                        android:id="@+id/txt_distilled_price"
+                        android:textSize="14sp"
+                        android:hint="Price"
+                        tools:enabled="true"
+                        android:enabled="false"
+                        android:inputType="numberDecimal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/txt_distilled_price_validation"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        android:text="@string/price_validation_text"
+                        style="@style/validation_text_vll" />
+
+                    <CheckBox
+                        android:id="@+id/chk_alkaline"
+                        android:text="Alkaline"
+                        android:buttonTint="@color/colorAccent"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+
+                    <EditText
+                        android:id="@+id/txt_alkaline_price"
+                        android:textSize="14sp"
+                        android:hint="Price"
+                        tools:enabled="true"
+                        android:enabled="false"
+                        android:inputType="numberDecimal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/txt_alkaline_price_validation"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        android:text="@string/price_validation_text"
+                        style="@style/validation_text_vll" />
+
+                    <CheckBox
+                        android:id="@+id/chk_purified"
+                        android:text="Purified"
+                        android:buttonTint="@color/colorAccent"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+
+                    <EditText
+                        android:id="@+id/txt_purified_price"
+                        android:textSize="14sp"
+                        android:hint="Price"
+                        tools:enabled="true"
+                        android:enabled="false"
+                        android:inputType="numberDecimal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/txt_purified_price_validation"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        android:text="@string/price_validation_text"
+                        style="@style/validation_text_vll" />
+
+                    <CheckBox
+                        android:id="@+id/chk_mineral"
+                        android:text="Mineral"
+                        android:buttonTint="@color/colorAccent"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+
+                    <EditText
+                        android:id="@+id/txt_mineral_price"
+                        android:textSize="14sp"
+                        android:hint="Price"
+                        tools:enabled="true"
+                        android:enabled="false"
+                        android:inputType="numberDecimal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/txt_mineral_price_validation"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        android:text="@string/price_validation_text"
+                        style="@style/validation_text_vll" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/container_buttons"
+        android:layout_margin="15dp"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_finish"
+            android:text="Finish"
+            style="@style/form_button" />
+
+    </LinearLayout>
+
+</LinearLayout>

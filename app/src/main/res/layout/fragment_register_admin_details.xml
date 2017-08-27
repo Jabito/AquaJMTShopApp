@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/container_details"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:text="Administrator Registration"
+                    style="@style/form_header" />
+
+                <TextView
+                    android:text="Personal Details"
+                    style="@style/form_subheader" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/container_details">
+
+                <TextView
+                    android:text="First name"
+                    style="@style/form_label" />
+
+                <EditText
+                    android:id="@+id/txt_first_name"
+                    android:inputType="textPersonName"
+                    style="@style/form_text_box" />
+
+                <TextView
+                    android:id="@+id/txt_fname_validation_empty"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:text="Please enter your first name"
+                    style="@style/validation_text_vll" />
+
+                <TextView
+                    android:text="Middle name"
+                    style="@style/form_label" />
+
+                <EditText
+                    android:id="@+id/txt_middle_name"
+                    android:inputType="textPersonName"
+                    style="@style/form_text_box" />
+
+                <TextView
+                    android:id="@+id/txt_mname_validation_empty"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:text="Please enter your middle name"
+                    style="@style/validation_text_vll" />
+
+                <TextView
+                    android:text="Last name"
+                    style="@style/form_label" />
+
+                <EditText
+                    android:id="@+id/txt_last_name"
+                    android:inputType="textPersonName"
+                    style="@style/form_text_box"/>
+
+                <TextView
+                    android:id="@+id/txt_lname_validation_empty"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:text="Please enter your last name"
+                    style="@style/validation_text_vll" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/container_buttons"
+        android:layout_margin="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end">
+
+        <Button
+            android:id="@+id/btn_finish"
+            android:text="Finish"
+            style="@style/form_button" />
+
+    </LinearLayout>
+
+</LinearLayout>
