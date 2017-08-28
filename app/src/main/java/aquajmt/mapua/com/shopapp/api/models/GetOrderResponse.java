@@ -1,5 +1,8 @@
 package aquajmt.mapua.com.shopapp.api.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -8,7 +11,11 @@ import java.util.List;
 
 public class GetOrderResponse {
 
+    @SerializedName("orders")
+    @Expose
     private List<OrderInfo> orders;
+    @SerializedName("responseDesc")
+    @Expose
     private String responseDesc;
 
     public List<OrderInfo> getOrders() {

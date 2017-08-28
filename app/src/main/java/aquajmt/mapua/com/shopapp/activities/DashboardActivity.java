@@ -9,10 +9,12 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import java.util.List;
+
 import aquajmt.mapua.com.shopapp.R;
 import aquajmt.mapua.com.shopapp.adapters.DashboardPagerAdapter;
 import aquajmt.mapua.com.shopapp.api.Api;
-import aquajmt.mapua.com.shopapp.api.models.GetOrderResponse;
+import aquajmt.mapua.com.shopapp.api.models.OrderInfo;
 import aquajmt.mapua.com.shopapp.api.retrofit.RetrofitApiImpl;
 import aquajmt.mapua.com.shopapp.fragments.DashboardOrdersFragment;
 import aquajmt.mapua.com.shopapp.utils.SharedPref;
@@ -66,11 +68,12 @@ public class DashboardActivity extends FragmentActivity implements TabLayout.OnT
     @Override
     public void retrieveShopOrders(int page, int pageSize, final DashboardOrdersFragment.Receiver receiver) {
         RetrofitApiImpl retrofit = new RetrofitApiImpl(Api.API_ENDPOINT);
-        retrofit.getOrders(SharedPref.getStringValue(SharedPref.USER, SharedPref.SHOP_ID, getBaseContext()), 0, "", page, pageSize, new Api.GetShopOrdersListener() {
+        retrofit.getOrders(SharedPref.getStringValue(SharedPref.USER, SharedPref.SHOP_ID, getBaseContext()),
+                0, "", page, pageSize, new Api.GetShopOrdersListener() {
 
             @Override
-            public void retrievedShopOrders(GetOrderResponse orders) {
-                receiver.retrieveShopOrders(orders.getOrders());
+            public void retrievedShopOrders(List<OrderInfo> orders) {
+                receiver.retrieveShopOrders(orders);
             }
 
             @Override

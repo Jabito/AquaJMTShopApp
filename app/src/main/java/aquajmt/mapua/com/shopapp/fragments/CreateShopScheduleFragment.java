@@ -117,8 +117,8 @@ public class CreateShopScheduleFragment extends Fragment {
             }
 
             private void continueInit() {
-                txtOpeningTime.setText(openingTimeCalendar.getTime().toString());
-                txtClosingTime.setText(closingTimeCalendar.getTime().toString());
+                txtOpeningTime.setText(timeFormatter.format(openingTimeCalendar.getTime()));
+                txtClosingTime.setText(timeFormatter.format(closingTimeCalendar.getTime()));
             }
         });
 

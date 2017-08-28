@@ -3,6 +3,7 @@ package aquajmt.mapua.com.shopapp.api.retrofit;
 import org.json.JSONObject;
 
 import aquajmt.mapua.com.shopapp.api.Api;
+import aquajmt.mapua.com.shopapp.api.models.GetOrderResponse;
 import aquajmt.mapua.com.shopapp.api.models.LoginResponse;
 import aquajmt.mapua.com.shopapp.api.models.ShopInfo;
 import aquajmt.mapua.com.shopapp.models.CreateShopResponse;
@@ -153,15 +154,19 @@ public class RetrofitApiImpl extends Api {
 
     @Override
     public void getOrders(String shopId, int waterType, String status, int page, int pageSize, final Api.GetShopOrdersListener getOrdersListener) {
-        apiService.getOrders(shopId, waterType, status, page, pageSize).enqueue(new Callback<ResponseBody>() {
+        apiService.getOrders(shopId, waterType, status, page, pageSize).enqueue(new Callback<GetOrderResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                System.out.print(response.body().toString());
-                getOrdersListener.retrievedShopOrders(null);
+            public void onResponse(Call<GetOrderResponse> call, Response<GetOrderResponse> response) {
+                if(response.code() == 200)
+                    getOrdersListener.retrievedShopOrders(response.body().getOrders());
+                else if(response.code() == 404)
+                    getOrdersListener.invalidRequest();
+                else if(response.code() == 500)
+                    getOrdersListener.onError();
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<GetOrderResponse> call, Throwable t) {
 
             }
         });

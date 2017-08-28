@@ -1,6 +1,8 @@
 package aquajmt.mapua.com.shopapp.api;
 
-import aquajmt.mapua.com.shopapp.api.models.GetOrderResponse;
+import java.util.List;
+
+import aquajmt.mapua.com.shopapp.api.models.OrderInfo;
 import aquajmt.mapua.com.shopapp.api.models.ShopInfo;
 import aquajmt.mapua.com.shopapp.models.CreateShopResponse;
 import aquajmt.mapua.com.shopapp.models.LoginJson;
@@ -55,7 +57,7 @@ public abstract class Api {
     }
 
     public interface GetShopOrdersListener {
-        void retrievedShopOrders(GetOrderResponse orders);
+        void retrievedShopOrders(List<OrderInfo> orders);
         void invalidRequest();
         void onError();
     }

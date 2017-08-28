@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,7 @@ import aquajmt.mapua.com.shopapp.adapters.OrderArrayAdapter;
 import aquajmt.mapua.com.shopapp.api.models.OrderInfo;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 
 /**
  * Created by Bryan on 7/28/2017.
@@ -26,9 +28,12 @@ import butterknife.ButterKnife;
 
 public class DashboardOrdersFragment extends Fragment implements AbsListView.OnScrollListener {
 
-    private static final int PAGE_SIZE = 10;
+    private static final int PAGE_SIZE = 30;
     private boolean isOrderListInitialized;
     private int currentPage = 1;
+    private static final String PENDING = "PENDING";
+    private static final String ACTIVE = "ACTIVE";
+    private static final String COMPLETED = "COMPLETED";
 
     private Listener listener;
     private OrderArrayAdapter orderArrayAdapter;
@@ -109,8 +114,8 @@ public class DashboardOrdersFragment extends Fragment implements AbsListView.OnS
                 // FIXME: this is executed if the last item is initially visible to the user
                 // TODO: show a progress indicator when the user scrolled down to the last item
                 // and the orders are still being fetched from the server
-                currentPage++;
-                refreshList(false);
+                //currentPage++;
+                //refreshList(false);
             }
         }
     }
@@ -122,7 +127,7 @@ public class DashboardOrdersFragment extends Fragment implements AbsListView.OnS
                 if (hideRefreshThingAfterLoad) swipeRefreshLayout.setRefreshing(false);
 
                 if (!isOrderListInitialized) {
-                    isOrderListInitialized = false;
+                    isOrderListInitialized = true;
                     lstOrders.setVisibility(View.VISIBLE);
                     containerErrorLoading.setVisibility(View.GONE);
                 }
@@ -147,6 +152,11 @@ public class DashboardOrdersFragment extends Fragment implements AbsListView.OnS
                 }
             }
         });
+    }
+
+    @OnItemClick(R.id.lst_orders)
+    public void listOrderOnItemSelect(View view, Integer position, long id){
+        Toast.makeText(getContext(), "Item Selected " + position, Toast.LENGTH_SHORT).show();
     }
 
     public interface Listener {

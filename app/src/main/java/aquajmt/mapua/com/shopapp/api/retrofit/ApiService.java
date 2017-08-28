@@ -1,6 +1,7 @@
 package aquajmt.mapua.com.shopapp.api.retrofit;
 
 import aquajmt.mapua.com.shopapp.api.Api;
+import aquajmt.mapua.com.shopapp.api.models.GetOrderResponse;
 import aquajmt.mapua.com.shopapp.api.models.LoginResponse;
 import aquajmt.mapua.com.shopapp.api.models.ShopInfo;
 import aquajmt.mapua.com.shopapp.models.CreateShopResponse;
@@ -34,5 +35,7 @@ public interface ApiService {
     Call<CreateShopResponse> createShop(@Body ShopInfo shopInfo);
 
     @GET(Api.GET_ORDERS_ENDPOINT)
-    Call<ResponseBody> getOrders(@Query("shopId") String shopId, @Query("waterType") int i, @Query("status") String status, @Query("page") int page, @Query("pageSize") int pageSize);
+    Call<GetOrderResponse> getOrders(@Query("shopId") String shopId, @Query("waterType") int i,
+                                     @Query("status") String status, @Query("page") int page,
+                                     @Query("pageSize") int pageSize);
 }

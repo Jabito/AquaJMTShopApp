@@ -75,7 +75,7 @@ public class OrderArrayAdapter extends ArrayAdapter<OrderInfo> {
             }
 
             try {
-                viewHolder.setOrderDate(new SimpleDateFormat("MMM dd, YYYY HH:mm:SS.ssss").parse(orderPartial.getCreatedOn()));
+                viewHolder.setOrderDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(orderPartial.getCreatedOn()));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
