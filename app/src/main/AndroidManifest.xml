@@ -11,7 +11,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDRrftlgx6fP9WZxi71PiOsfge6faMzyd8" />
@@ -25,7 +24,6 @@
         </activity>
         <activity android:name=".activities.ShopCreationActivity" />
         <activity android:name=".activities.DashboardActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -38,5 +36,7 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.OrderInfoActivity"></activity>
     </application>
+
 </manifest>

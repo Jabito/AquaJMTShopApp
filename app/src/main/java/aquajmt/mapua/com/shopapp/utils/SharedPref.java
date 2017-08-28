@@ -3,6 +3,7 @@ package aquajmt.mapua.com.shopapp.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import aquajmt.mapua.com.shopapp.api.models.OrderInfo;
 import aquajmt.mapua.com.shopapp.api.models.ShopInfo;
 import aquajmt.mapua.com.shopapp.models.ShopLogin;
 
@@ -14,6 +15,7 @@ public class SharedPref {
 
     public static ShopInfo shopInfo = new ShopInfo();
     public static ShopLogin shopLogin = new ShopLogin();
+    public static OrderInfo currentOrder = new OrderInfo();
 
     public static String masterUSERNAME = "masterUSERNAME";
     public static String masterPASSWORD = "masterPASSWORD";

@@ -81,7 +81,7 @@ public class CreateShopLocationFragment extends Fragment {
 
                     @Override
                     public void notInitialized() {
-                        markerPosition = new LatLng(14.5995, 120.9842); // Manila location
+                        markerPosition = new LatLng(14.562432, 121.021473); // Manila location
                         continueMapInit();
                     }
 

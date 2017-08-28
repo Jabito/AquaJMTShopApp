@@ -1,31 +1,73 @@
 package aquajmt.mapua.com.shopapp.api.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Jabito on 27/08/2017.
  */
 
 public class OrderInfo {
-
+    @SerializedName("id")
+    @Expose
     private String id;
+    @SerializedName("orderedBy")
+    @Expose
     private String orderedBy;
+    @SerializedName("orderedFrom")
+    @Expose
     private String orderedFrom;
-    private String customerAddress;
-    private Float longitude;
-    private Float latitude;
-    private String waterType;
-    private Integer roundOrdered;
-    private Integer slimOrdered;
-    private Double costPerItem;
-    private Double totalCost;
-    private String moreDetails;
-    private String createdOn;
-    private String updatedOn;
-    private String updatedBy;
-    private Integer ratingGiven;
-    private String status;
-    private String comments;
+    @SerializedName("customerName")
+    @Expose
     private String customerName;
+    @SerializedName("customerAddress")
+    @Expose
+    private String customerAddress;
+    @SerializedName("shopName")
+    @Expose
     private String shopName;
+    @SerializedName("longitude")
+    @Expose
+    private Float longitude;
+    @SerializedName("latitude")
+    @Expose
+    private Float latitude;
+    @SerializedName("waterType")
+    @Expose
+    private String waterType;
+    @SerializedName("roundOrdered")
+    @Expose
+    private int roundOrdered;
+    @SerializedName("slimOrdered")
+    @Expose
+    private int slimOrdered;
+    @SerializedName("costPerItem")
+    @Expose
+    private double costPerItem;
+    @SerializedName("totalCost")
+    @Expose
+    private double totalCost;
+    @SerializedName("moreDetails")
+    @Expose
+    private String moreDetails;
+    @SerializedName("createdOn")
+    @Expose
+    private String createdOn;
+    @SerializedName("updatedOn")
+    @Expose
+    private String updatedOn;
+    @SerializedName("updatedBy")
+    @Expose
+    private String updatedBy;
+    @SerializedName("ratingGiven")
+    @Expose
+    private Integer ratingGiven;
+    @SerializedName("status")
+    @Expose
+    private String status;
+    @SerializedName("comments")
+    @Expose
+    private String comments;
 
     public String getId() {
         return id;

@@ -1,6 +1,7 @@
 package aquajmt.mapua.com.shopapp.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,18 +10,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import aquajmt.mapua.com.shopapp.R;
+import aquajmt.mapua.com.shopapp.activities.OrderInfoActivity;
 import aquajmt.mapua.com.shopapp.adapters.OrderArrayAdapter;
 import aquajmt.mapua.com.shopapp.api.models.OrderInfo;
+import aquajmt.mapua.com.shopapp.utils.SharedPref;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnItemClick;
 
 /**
  * Created by Bryan on 7/28/2017.
@@ -79,6 +81,18 @@ public class DashboardOrdersFragment extends Fragment implements AbsListView.OnS
         orderArrayAdapter = new OrderArrayAdapter(getContext(), orders);
         lstOrders.setAdapter(orderArrayAdapter);
         lstOrders.setOnScrollListener(this);
+
+        lstOrders.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
+                OrderInfo order = orderArrayAdapter.getItem(pos);
+                SharedPref.currentOrder = order;
+                Intent intent = new Intent(getActivity(), OrderInfoActivity.class);
+
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
         return view;
     }
@@ -152,11 +166,6 @@ public class DashboardOrdersFragment extends Fragment implements AbsListView.OnS
                 }
             }
         });
-    }
-
-    @OnItemClick(R.id.lst_orders)
-    public void listOrderOnItemSelect(View view, Integer position, long id){
-        Toast.makeText(getContext(), "Item Selected " + position, Toast.LENGTH_SHORT).show();
     }
 
     public interface Listener {

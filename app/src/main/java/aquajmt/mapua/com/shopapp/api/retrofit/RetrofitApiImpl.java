@@ -171,4 +171,19 @@ public class RetrofitApiImpl extends Api {
             }
         });
     }
+
+    public void createShopUser(ShopLogin shopLogin, final Api.CreateShopUserListener shopUserListener) {
+        apiService.createShopUser(shopLogin).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.code() == 200)
+                    shopUserListener.success();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+    }
 }

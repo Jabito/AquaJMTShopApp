@@ -3,6 +3,7 @@ package aquajmt.mapua.com.shopapp.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import aquajmt.mapua.com.shopapp.R;
 import aquajmt.mapua.com.shopapp.api.Api;
@@ -124,14 +124,33 @@ public class ShopLoginFragment extends Fragment {
 
                     @Override
                     public void usernameNotFound() {
-                        Toast.makeText(getContext(), "Username does not exist.", Toast.LENGTH_SHORT).show();
+                        final Snackbar snackbar = Snackbar.make(getView(), "Username does not Exist.", Snackbar.LENGTH_INDEFINITE);
+                        snackbar.setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        });
+                        snackbar.show();
                     }
 
                     @Override
                     public void invalidCredentials() {
-                        Toast.makeText(getContext(), "Username and Password did not match.", Toast.LENGTH_SHORT).show();
+                        final Snackbar snackbar = Snackbar.make(getView(), "Username and Password did not match.", Snackbar.LENGTH_INDEFINITE);
+                        snackbar.setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                snackbar.dismiss();
+                            }
+                        });
+                        snackbar.show();
                     }
                 });
+    }
+
+    @OnClick(R.id.tv_register)
+    void tvRegisterOnClick(){
+        listener.registerShopUser();
     }
 
     public interface ShopLoginFragmentListener {

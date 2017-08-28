@@ -29,15 +29,18 @@ import butterknife.ButterKnife;
 public class OrderArrayAdapter extends ArrayAdapter<OrderInfo> {
 
     private final boolean listForShop;
+    private Context context;
 
     public OrderArrayAdapter(Context context, ArrayList<OrderInfo> orderPartialList) {
         super(context, 0, orderPartialList);
+        this.context = context;
         this.listForShop = true;
     }
 
     public OrderArrayAdapter(Context context, ArrayList<OrderInfo> orderPartialList,
                              boolean listForShop) {
         super(context, 0, orderPartialList);
+        this.context = context;
         this.listForShop = listForShop;
     }
 
@@ -84,7 +87,7 @@ public class OrderArrayAdapter extends ArrayAdapter<OrderInfo> {
         return convertView;
     }
 
-    static class ViewHolder {
+    static class ViewHolder implements View.OnClickListener {
         @BindView(R.id.img_status)
         ImageView imgStatus;
 
@@ -201,5 +204,14 @@ public class OrderArrayAdapter extends ArrayAdapter<OrderInfo> {
             imgRating.setVisibility(View.VISIBLE);
             txtRating.setText(String.valueOf(rating));
         }
+
+        @Override
+        public void onClick(View view) {
+            System.out.print("Clicked" + view.toString());
+        }
+    }
+
+    public interface ArrayAdapterListener{
+        void onSelectedOrder(OrderInfo order);
     }
 }

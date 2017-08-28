@@ -11,12 +11,15 @@ import aquajmt.mapua.com.shopapp.fragments.AdminRegistrationLocationFragment;
 import aquajmt.mapua.com.shopapp.fragments.AdminRegistrationTwoFragment;
 import aquajmt.mapua.com.shopapp.fragments.PrepareLoginFragment;
 import aquajmt.mapua.com.shopapp.fragments.ShopLoginFragment;
+import aquajmt.mapua.com.shopapp.fragments.ShopUserRegistrationFragment;
 import aquajmt.mapua.com.shopapp.models.ShopLogin;
 import aquajmt.mapua.com.shopapp.utils.SharedPref;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements PrepareLoginFragment.PrepareLoginFragmentListener,
-        ShopLoginFragment.ShopLoginFragmentListener, AdminRegistrationFragment.AdminRegistrationFragmentListener {
+        ShopLoginFragment.ShopLoginFragmentListener, AdminRegistrationFragment.AdminRegistrationFragmentListener,
+        AdminRegistrationTwoFragment.AdminRegistrationTwoFragmentListener,
+        ShopUserRegistrationFragment.ShopUserRegistrationListener{
 
     private static final String PREPARE_LOGIN_FRAG_TAG = "prepare_login_frag_tag";
     private static final String LOGIN_FRAG_TAG = "login_frag_tag";
@@ -26,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements PrepareLoginFrag
     private AdminRegistrationFragment adminRegistrationFragment;
     private AdminRegistrationTwoFragment adminRegistrationTwoFragment;
     private AdminRegistrationLocationFragment adminRegistrationLocationFragment;
+    private ShopUserRegistrationFragment shopUserRegistrationFragment;
     private ShopLogin shopLogin;
 
     @Override
@@ -70,7 +74,12 @@ public class LoginActivity extends AppCompatActivity implements PrepareLoginFrag
 
     @Override
     public void registerShopUser() {
-        //todo shopUserRegistration Fragment + Layout
+        shopUserRegistrationFragment = ShopUserRegistrationFragment.newInstance();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_fragment, shopUserRegistrationFragment)
+                .addToBackStack(LOGIN_FRAG_TAG)
+                .commit();
     }
 
     @Override
@@ -78,7 +87,7 @@ public class LoginActivity extends AppCompatActivity implements PrepareLoginFrag
         shopLogin.setUsername(shop.getUsername());
         shopLogin.setEmail(shop.getEmail());
         shopLogin.setPassword(shop.getPassword());
-        adminRegistrationTwoFragment = AdminRegistrationTwoFragment.newInstance();
+        adminRegistrationTwoFragment = AdminRegistrationTwoFragment.newInstance(shopLogin);
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container_fragment, adminRegistrationTwoFragment)

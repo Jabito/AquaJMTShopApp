@@ -108,8 +108,6 @@ public class AdminRegistrationFragment extends Fragment {
                     Toast.makeText(getContext(), "Email already used.", Toast.LENGTH_SHORT).show();
                 }
             });
-
-            listener.registerPartTwo(shop);
         }
     }
 

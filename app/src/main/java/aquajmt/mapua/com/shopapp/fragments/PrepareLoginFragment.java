@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import aquajmt.mapua.com.shopapp.R;
 import aquajmt.mapua.com.shopapp.api.Api;
@@ -79,18 +79,28 @@ public class PrepareLoginFragment extends Fragment {
 
             @Override
             public void success(ShopInfo shopInfo) {
+                SharedPref.shopInfo = shopInfo;
                 listener.loginPrepared(shopInfo.getBusinessName());
                 prgLoading.setVisibility(View.GONE);
             }
 
             @Override
             public void successWithNoAdmin(ShopInfo shopInfo) {
+                SharedPref.shopInfo = shopInfo;
+                SharedPref.shopLogin.setStaffOf(shopInfo.getId());
                 listener.goToRegisterFragment();
             }
 
             @Override
             public void error() {
-                Toast.makeText(getContext(), "Shop ID Not valid.", Toast.LENGTH_SHORT).show();
+                final Snackbar snackbar = Snackbar.make(getView(), "Shop ID is not valid.", Snackbar.LENGTH_INDEFINITE);
+                snackbar.setAction("Dismiss", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        snackbar.dismiss();
+                    }
+                });
+                snackbar.show();
                 toggleUiState();
             }
         });

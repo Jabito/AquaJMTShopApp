@@ -1,5 +1,8 @@
 package aquajmt.mapua.com.shopapp.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import org.json.JSONObject;
 
 /**
@@ -8,15 +11,35 @@ import org.json.JSONObject;
 
 public class ShopLogin {
 
+    @SerializedName("id")
+    @Expose
     private String id;
+    @SerializedName("username")
+    @Expose
     private String username;
+    @SerializedName("password")
+    @Expose
     private String password;
+    @SerializedName("email")
+    @Expose
     private String email;
+    @SerializedName("firstName")
+    @Expose
     private String firstName;
+    @SerializedName("lastName")
+    @Expose
     private String lastName;
+    @SerializedName("middleName")
+    @Expose
     private String middleName;
+    @SerializedName("staffOf")
+    @Expose
     private String staffOf;
+    @SerializedName("createdOn")
+    @Expose
     private String createdOn;
+    @SerializedName("updatedOn")
+    @Expose
     private String updatedOn;
 
     public ShopLogin(){}

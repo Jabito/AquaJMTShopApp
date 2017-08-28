@@ -6,6 +6,7 @@ import aquajmt.mapua.com.shopapp.api.models.LoginResponse;
 import aquajmt.mapua.com.shopapp.api.models.ShopInfo;
 import aquajmt.mapua.com.shopapp.models.CreateShopResponse;
 import aquajmt.mapua.com.shopapp.models.LoginJson;
+import aquajmt.mapua.com.shopapp.models.ShopLogin;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -38,4 +39,7 @@ public interface ApiService {
     Call<GetOrderResponse> getOrders(@Query("shopId") String shopId, @Query("waterType") int i,
                                      @Query("status") String status, @Query("page") int page,
                                      @Query("pageSize") int pageSize);
+
+    @POST(Api.CREATE_SHOP_USER_ENDPOINT)
+    Call<ResponseBody> createShopUser(@Body ShopLogin shopLogin);
 }
