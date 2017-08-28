@@ -42,4 +42,10 @@ public interface ApiService {
 
     @POST(Api.CREATE_SHOP_USER_ENDPOINT)
     Call<ResponseBody> createShopUser(@Body ShopLogin shopLogin);
+
+    @POST(Api.ACCEPT_ORDER_ENDPOINT)
+    Call<ResponseBody> acceptOrder(@Query("id") String id);
+
+    @POST(Api.DECLINE_ORDER_ENDPOINT)
+    Call<ResponseBody> declineOrder(@Query("id") String id);
 }

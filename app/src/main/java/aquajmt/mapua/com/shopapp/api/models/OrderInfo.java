@@ -68,6 +68,9 @@ public class OrderInfo {
     @SerializedName("comments")
     @Expose
     private String comments;
+    @SerializedName("customerContact")
+    @Expose
+    private String customerContact;
 
     public String getId() {
         return id;
@@ -227,5 +230,29 @@ public class OrderInfo {
 
     public void setShopName(String shopName) {
         this.shopName = shopName;
+    }
+
+    public void setRoundOrdered(int roundOrdered) {
+        this.roundOrdered = roundOrdered;
+    }
+
+    public void setSlimOrdered(int slimOrdered) {
+        this.slimOrdered = slimOrdered;
+    }
+
+    public void setCostPerItem(double costPerItem) {
+        this.costPerItem = costPerItem;
+    }
+
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public String getCustomerContact() {
+        return customerContact;
+    }
+
+    public void setCustomerContact(String customerContact) {
+        this.customerContact = customerContact;
     }
 }

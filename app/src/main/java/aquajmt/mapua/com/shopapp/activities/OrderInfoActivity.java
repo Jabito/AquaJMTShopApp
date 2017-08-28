@@ -8,7 +8,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import aquajmt.mapua.com.shopapp.R;
+import aquajmt.mapua.com.shopapp.api.Api;
 import aquajmt.mapua.com.shopapp.api.models.OrderInfo;
+import aquajmt.mapua.com.shopapp.api.retrofit.RetrofitApiImpl;
 import aquajmt.mapua.com.shopapp.utils.SharedPref;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -30,7 +32,7 @@ public class OrderInfoActivity extends AppCompatActivity {
     TextView tvWaterType;
 
     @BindView(R.id.tv_round_ordered)
-    TextView tvROundOrdered;
+    TextView tvRoundOrdered;
 
     @BindView(R.id.tv_slim_ordered)
     TextView tvSlimOrdered;
@@ -60,17 +62,46 @@ public class OrderInfoActivity extends AppCompatActivity {
 
         tvCustomerName.setText(currentOrder.getCustomerName());
         tvCustomerAddress.setText(currentOrder.getCustomerAddress());
+        tvCustomerContact.setText(currentOrder.getCustomerContact());
+        tvRoundOrdered.setText(currentOrder.getRoundOrdered());
+        tvSlimOrdered.setText(currentOrder.getSlimOrdered());
+        tvTotalCost.setText(currentOrder.getTotalCost().toString());
+        tvWaterType.setText(currentOrder.getWaterType());
 
         Toast.makeText(getApplicationContext(), currentOrder.getId(), Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.btn_accept)
     void btnAcceptOnClick(){
+        RetrofitApiImpl retrofit = new RetrofitApiImpl(Api.API_ENDPOINT);
+        retrofit.acceptOrder(currentOrder.getId(), new Api.AcceptOrderListener(){
 
+            @Override
+            public void success() {
+                goBackToDashboard();
+            }
+        });
+    }
+
+    @OnClick(R.id.btn_decline)
+    void btnDeclineOnClick(){
+        RetrofitApiImpl retrofit = new RetrofitApiImpl(Api.API_ENDPOINT);
+        retrofit.declineOrder(currentOrder.getId(), new Api.DeclineOrderListener(){
+
+            @Override
+            public void success() {
+                goBackToDashboard();
+            }
+        });
     }
 
     @OnClick(R.id.btn_back)
     void btnBackOnClick(){
+        goBackToDashboard();
+    }
+
+    void goBackToDashboard(){
         startActivity(new Intent(OrderInfoActivity.this, DashboardActivity.class));
+        finish();
     }
 }
