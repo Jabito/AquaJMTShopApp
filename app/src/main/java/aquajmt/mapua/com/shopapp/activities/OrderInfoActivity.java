@@ -78,6 +78,11 @@ public class OrderInfoActivity extends AppCompatActivity {
         tvSlimOrdered.setText(currentOrder.getSlimOrdered().toString());
         tvTotalCost.setText(currentOrder.getTotalCost().toString());
         tvWaterType.setText(currentOrder.getWaterType());
+
+        if(!currentOrder.getStatus().equalsIgnoreCase("PENDING")){
+            btnAccept.setVisibility(View.GONE);
+            btnDecline.setVisibility(View.GONE);
+        }
     }
 
     @OnClick(R.id.btn_accept)

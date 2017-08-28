@@ -1,6 +1,7 @@
 package aquajmt.mapua.com.shopapp.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -64,7 +65,28 @@ public class OrderArrayAdapter extends ArrayAdapter<OrderInfo> {
             } else {
                 viewHolder.setShopName(orderPartial.getShopName());
             }
-            // viewHolder.setStatus(orderPartial.getStatus());
+            //viewHolder.setStatus(orderPartial.getStatus());
+            switch (orderPartial.getStatus()) {
+                case "PENDING":
+                    viewHolder.imgStatus.setImageResource(R.drawable.ic_access_time_black_24dp);
+                    viewHolder.imgStatus.setColorFilter(Color.YELLOW);
+                    break;
+                case "ACTIVE":
+                    viewHolder.imgStatus.setImageResource(R.drawable.ic_error_black_24dp);
+                    viewHolder.imgStatus.setColorFilter(Color.BLUE);
+                    break;
+                case "COMPLETED":
+                    viewHolder.imgStatus.setImageResource(R.drawable.ic_check_black_24dp);
+                    viewHolder.imgStatus.setColorFilter(Color.GREEN);
+                    break;
+                case "DECLINED":
+                case "CANCELLED":
+                    viewHolder.imgStatus.setImageResource(R.drawable.ic_close_black_24dp);
+                    viewHolder.imgStatus.setColorFilter(Color.RED);
+                    break;
+                default:
+                    break;
+            }
             viewHolder.setTotalPrice(orderPartial.getTotalCost());
             viewHolder.setWaterType(orderPartial.getWaterType());
             viewHolder.setRoundCount(orderPartial.getRoundOrdered());
@@ -137,6 +159,7 @@ public class OrderArrayAdapter extends ArrayAdapter<OrderInfo> {
 
         private static final SimpleDateFormat sdf =
                 new SimpleDateFormat("EEE HH:mm dd MMM yyyy", Locale.getDefault());
+
         void setOrderDate(Date orderDate) {
             txtOrderDate.setText(sdf.format(orderDate));
         }

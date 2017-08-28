@@ -153,8 +153,8 @@ public class RetrofitApiImpl extends Api {
     }
 
     @Override
-    public void getOrders(String shopId, int waterType, String status, int page, int pageSize, final Api.GetShopOrdersListener getOrdersListener) {
-        apiService.getOrders(shopId, waterType, status, page, pageSize).enqueue(new Callback<GetOrderResponse>() {
+    public void getOrders(String shopId, int type, String status, int page, int pageSize, final Api.GetShopOrdersListener getOrdersListener) {
+        apiService.getOrders(shopId, type, status, page, pageSize).enqueue(new Callback<GetOrderResponse>() {
             @Override
             public void onResponse(Call<GetOrderResponse> call, Response<GetOrderResponse> response) {
                 if(response.code() == 200)

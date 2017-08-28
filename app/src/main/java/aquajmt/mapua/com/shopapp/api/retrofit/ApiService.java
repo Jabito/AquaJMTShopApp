@@ -36,7 +36,7 @@ public interface ApiService {
     Call<CreateShopResponse> createShop(@Body ShopInfo shopInfo);
 
     @GET(Api.GET_ORDERS_ENDPOINT)
-    Call<GetOrderResponse> getOrders(@Query("shopId") String shopId, @Query("waterType") int i,
+    Call<GetOrderResponse> getOrders(@Query("shopId") String shopId, @Query("type") int type,
                                      @Query("status") String status, @Query("page") int page,
                                      @Query("pageSize") int pageSize);
 
