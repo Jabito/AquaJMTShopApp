@@ -210,8 +210,4 @@ public class OrderArrayAdapter extends ArrayAdapter<OrderInfo> {
             System.out.print("Clicked" + view.toString());
         }
     }
-
-    public interface ArrayAdapterListener{
-        void onSelectedOrder(OrderInfo order);
-    }
 }
