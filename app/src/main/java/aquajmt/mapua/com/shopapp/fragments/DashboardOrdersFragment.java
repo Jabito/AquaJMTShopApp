@@ -33,9 +33,6 @@ public class DashboardOrdersFragment extends Fragment implements AbsListView.OnS
     private static final int PAGE_SIZE = 30;
     private boolean isOrderListInitialized;
     private int currentPage = 1;
-    private static final String PENDING = "PENDING";
-    private static final String ACTIVE = "ACTIVE";
-    private static final String COMPLETED = "COMPLETED";
 
     private Listener listener;
     private OrderArrayAdapter orderArrayAdapter;
@@ -125,17 +122,12 @@ public class DashboardOrdersFragment extends Fragment implements AbsListView.OnS
         if (view != null && view.getChildAt(view.getChildCount() - 1) != null) {
             if (view.getLastVisiblePosition() == view.getAdapter().getCount() - 1
                     && view.getChildAt(view.getChildCount() - 1).getBottom() <= view.getHeight()) {
-                // FIXME: this is executed if the last item is initially visible to the user
-                // TODO: show a progress indicator when the user scrolled down to the last item
-                // and the orders are still being fetched from the server
-                //currentPage++;
-                //refreshList(false);
             }
         }
     }
 
     private void refreshList(final boolean hideRefreshThingAfterLoad) {
-        listener.retrieveShopOrders(currentPage, PAGE_SIZE, new Receiver() {
+        listener.retrieveShopOrders(1, currentPage, PAGE_SIZE, new Receiver() {
             @Override
             public void retrieveShopOrders(List<OrderInfo> orderPartials) {
                 if (hideRefreshThingAfterLoad) swipeRefreshLayout.setRefreshing(false);
@@ -169,7 +161,7 @@ public class DashboardOrdersFragment extends Fragment implements AbsListView.OnS
     }
 
     public interface Listener {
-        void retrieveShopOrders(int page, int pageSize, Receiver receiver);
+        void retrieveShopOrders(int type, int page, int pageSize, Receiver receiver);
     }
 
     public interface Receiver {

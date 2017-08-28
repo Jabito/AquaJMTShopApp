@@ -16,13 +16,14 @@ import aquajmt.mapua.com.shopapp.adapters.DashboardPagerAdapter;
 import aquajmt.mapua.com.shopapp.api.Api;
 import aquajmt.mapua.com.shopapp.api.models.OrderInfo;
 import aquajmt.mapua.com.shopapp.api.retrofit.RetrofitApiImpl;
+import aquajmt.mapua.com.shopapp.fragments.DashboardNotificationsFragment;
 import aquajmt.mapua.com.shopapp.fragments.DashboardOrdersFragment;
 import aquajmt.mapua.com.shopapp.utils.SharedPref;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DashboardActivity extends FragmentActivity implements TabLayout.OnTabSelectedListener,
-        DashboardOrdersFragment.Listener {
+        DashboardOrdersFragment.Listener, DashboardNotificationsFragment.Listener {
 
     @BindView(R.id.coordinator_layout)
     CoordinatorLayout coordinatorLayout;
@@ -66,10 +67,10 @@ public class DashboardActivity extends FragmentActivity implements TabLayout.OnT
     }
 
     @Override
-    public void retrieveShopOrders(int page, int pageSize, final DashboardOrdersFragment.Receiver receiver) {
+    public void retrieveShopOrders(int type, int page, int pageSize, final DashboardOrdersFragment.Receiver receiver) {
         RetrofitApiImpl retrofit = new RetrofitApiImpl(Api.API_ENDPOINT);
         retrofit.getOrders(SharedPref.getStringValue(SharedPref.USER, SharedPref.SHOP_ID, getBaseContext()),
-                0, "", page, pageSize, new Api.GetShopOrdersListener() {
+                type, "", page, pageSize, new Api.GetShopOrdersListener() {
 
             @Override
             public void retrievedShopOrders(List<OrderInfo> orders) {
@@ -101,4 +102,27 @@ public class DashboardActivity extends FragmentActivity implements TabLayout.OnT
         snackbar.show();
     }
 
+    @Override
+    public void retrieveShopOrders(int type, int page, int pageSize, final DashboardNotificationsFragment.Receiver receiver) {
+        RetrofitApiImpl retrofit = new RetrofitApiImpl(Api.API_ENDPOINT);
+        retrofit.getOrders(SharedPref.getStringValue(SharedPref.USER, SharedPref.SHOP_ID, getBaseContext()),
+                type, "", page, pageSize, new Api.GetShopOrdersListener() {
+
+                    @Override
+                    public void retrievedShopOrders(List<OrderInfo> orders) {
+                        receiver.retrieveShopOrders(orders);
+                    }
+
+                    @Override
+                    public void invalidRequest() {
+                        receiver.onError();
+                        errorOccurred();
+                    }
+
+                    @Override
+                    public void onError() {
+                        receiver.onError();;
+                    }
+                });
+    }
 }

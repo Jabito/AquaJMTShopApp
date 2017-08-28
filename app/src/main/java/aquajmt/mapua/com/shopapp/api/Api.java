@@ -31,7 +31,7 @@ public abstract class Api {
     public abstract void getUsernameExists(String username, String email, AdminRegistrationFragmentListener adminRegistrationFragmentListener);
     public abstract void checkUniqueIdValid(String uniqueId, CheckUniqueIdAvailabilityListener checkUniqueIdListener);
     public abstract void createShop(ShopInfo shop, CreateShopListener createShopListener);
-    public abstract void getOrders(String shopId, int waterType, String status, int page, int pageSize, GetShopOrdersListener getOrdersListener);
+    public abstract void getOrders(String shopId, int type, String status, int page, int pageSize, GetShopOrdersListener getOrdersListener);
     public abstract void createShopUser(ShopLogin shopUser, CreateShopUserListener createShopUserListener);
     public abstract void acceptOrder(String shopId, AcceptOrderListener acceptOrderListener);
     public abstract void declineOrder(String shopId, DeclineOrderListener declineOrderListener);
