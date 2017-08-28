@@ -8,8 +8,11 @@
         android:id="@+id/tv_shop_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="30dp"
         android:fontFamily="serif"
         android:text="Shop Name"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
         android:textAlignment="center"
         android:textSize="25dp" />
 
@@ -17,13 +20,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
         <TextView
             android:fontFamily="serif"
-            android:textSize="@dimen/text_size"
+            android:textSize="17dp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
             android:text="Address" />
 
         <TextView
@@ -39,12 +46,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <TextView
             android:fontFamily="serif"
-            android:textSize="@dimen/text_size"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact Number" />
@@ -63,12 +74,16 @@
         android:id="@+id/rl_alternate_no"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <TextView
             android:fontFamily="serif"
-            android:textSize="@dimen/text_size"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Alternate Number" />
@@ -87,11 +102,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
         <TextView
             android:fontFamily="serif"
-            android:textSize="@dimen/text_size"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time Open" />
@@ -110,11 +129,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
         <TextView
             android:fontFamily="serif"
-            android:textSize="@dimen/text_size"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time Close" />
