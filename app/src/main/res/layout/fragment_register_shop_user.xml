@@ -15,7 +15,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:text="Username"
-            android:textSize="@dimen/text_size" />
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/et_username"
@@ -37,7 +39,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:text="Password"
-            android:textSize="@dimen/text_size" />
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/et_password"
@@ -60,7 +64,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:text="Confirm Password"
-            android:textSize="@dimen/text_size" />
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/et_confirm_password"
@@ -83,7 +89,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:text="Email"
-            android:textSize="@dimen/text_size" />
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/et_email"
@@ -105,7 +113,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:text="First Name"
-            android:textSize="@dimen/text_size" />
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/et_first_name"
@@ -127,7 +137,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="serif"
             android:text="Last Name"
-            android:textSize="@dimen/text_size" />
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary" />
 
         <EditText
             android:id="@+id/et_last_name"
