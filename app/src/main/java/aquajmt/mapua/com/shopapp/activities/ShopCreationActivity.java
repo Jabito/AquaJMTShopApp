@@ -2,9 +2,11 @@ package aquajmt.mapua.com.shopapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+import android.view.View;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,6 +23,7 @@ import aquajmt.mapua.com.shopapp.fragments.CreateShopScheduleFragment;
 import aquajmt.mapua.com.shopapp.models.CreateShopResponse;
 import aquajmt.mapua.com.shopapp.utils.SharedPref;
 import aquajmt.mapua.com.shopapp.utils.StringUtils;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ShopCreationActivity extends AppCompatActivity implements CreateBasicShopDetailsFragment.Listener,
@@ -45,6 +48,8 @@ public class ShopCreationActivity extends AppCompatActivity implements CreateBas
     private CreateShopScheduleFragment createShopScheduleFragment;
     private CreateShopSalesInfoFragment createShopSalesInfoFragment;
 
+    @BindView(R.id.coordinator_layout)
+    CoordinatorLayout coordinatorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +110,15 @@ public class ShopCreationActivity extends AppCompatActivity implements CreateBas
 
     @Override
     public void errorOccurred() {
-        Toast.makeText(this, "Error Occured.", Toast.LENGTH_SHORT).show();
+        final Snackbar snackbar = Snackbar.make(coordinatorLayout, "An error occurred. " +
+                "Please try again.", Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction("Dismiss", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+            }
+        });
+        snackbar.show();
     }
 
     @Override

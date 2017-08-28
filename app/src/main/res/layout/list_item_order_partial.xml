@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp">
+
+    <ImageView
+        android:id="@+id/img_status"
+        android:tint="@android:color/holo_green_light"
+        android:src="@drawable/ic_check_circle_black_24dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@id/img_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_entity_name"
+            android:textColor="#000"
+            android:textStyle="bold"
+            tools:text="Javier, Jose Paolo R."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txt_order_date"
+            android:textColor="#444"
+            android:textSize="12sp"
+            tools:text="Mon, 19:34 29 Jul 2017"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/price_php_md"
+                android:tint="#777"
+                android:layout_marginEnd="4dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="16dp"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/txt_total_price"
+                android:textColor="#777"
+                android:textSize="11sp"
+                tools:text="75.00"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/water_droplet_lg"
+                android:tint="#777"
+                android:layout_marginEnd="4dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="16dp"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/txt_water_type"
+                android:textColor="#777"
+                android:textSize="11sp"
+                tools:text="Alkaline"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/round_container_sm"
+                android:tint="#777"
+                android:layout_marginEnd="4dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="16dp"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/txt_round_count"
+                android:textColor="#777"
+                android:textSize="11sp"
+                tools:text="3"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@drawable/slim_container_sm"
+                android:tint="#777"
+                android:layout_marginEnd="4dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="16dp"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/txt_slim_count"
+                android:textColor="#777"
+                android:textSize="11sp"
+                tools:text="0"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/img_rating"
+                android:src="@drawable/ic_star_black_24dp"
+                android:tint="#777"
+                android:layout_marginEnd="4dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="16dp"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/txt_rating"
+                android:textColor="#777"
+                android:textSize="11sp"
+                tools:text="5"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

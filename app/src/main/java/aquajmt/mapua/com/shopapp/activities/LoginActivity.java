@@ -16,7 +16,7 @@ import aquajmt.mapua.com.shopapp.utils.SharedPref;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements PrepareLoginFragment.PrepareLoginFragmentListener,
-        ShopLoginFragment.ShopLoginFragmentListener, AdminRegistrationFragment.AdminRegistrationFragmentListener{
+        ShopLoginFragment.ShopLoginFragmentListener, AdminRegistrationFragment.AdminRegistrationFragmentListener {
 
     private static final String PREPARE_LOGIN_FRAG_TAG = "prepare_login_frag_tag";
     private static final String LOGIN_FRAG_TAG = "login_frag_tag";
@@ -36,19 +36,18 @@ public class LoginActivity extends AppCompatActivity implements PrepareLoginFrag
         ButterKnife.bind(this);
         shopLogin = new ShopLogin();
 
-        if(null != SharedPref.shopInfo)
+        if (null != SharedPref.shopInfo.getBusinessName())
             loginPrepared(SharedPref.shopInfo.getBusinessName());
-
-        if(savedInstanceState == null){
+        else if (savedInstanceState == null) {
             prepareLoginFragment = new PrepareLoginFragment();
 
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container_fragment, prepareLoginFragment, PREPARE_LOGIN_FRAG_TAG)
                     .commit();
-        }else{
+        } else {
             prepareLoginFragment = (PrepareLoginFragment)
                     getSupportFragmentManager().findFragmentByTag(PREPARE_LOGIN_FRAG_TAG);
-            if(prepareLoginFragment == null)
+            if (prepareLoginFragment == null)
                 prepareLoginFragment = new PrepareLoginFragment();
 
             getSupportFragmentManager().beginTransaction()

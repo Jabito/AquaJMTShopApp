@@ -70,15 +70,16 @@ public class RetrofitApiImpl extends Api {
         apiService.login(login).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                System.out.print(response);
                 try {
-                    if (response.code() == 200 && null != response.body()) {
+                    if (response.body().getResponseCode().equals("200") && null != response.body()) {
                         ShopLogin shopLogin = response.body().getShopLogin();
                         ShopInfo shop = response.body().getShopInfo();
 
                         shopLoginFragmentListener.success(shopLogin, shop);
                     } else if (response.code() == 401) {
                         shopLoginFragmentListener.invalidCredentials();
-                    }else if (response.code() == 404){
+                    } else if (response.code() == 404) {
                         shopLoginFragmentListener.usernameNotFound();
                     }
                 } catch (Exception e) {
@@ -94,15 +95,15 @@ public class RetrofitApiImpl extends Api {
     }
 
     @Override
-    public void getUsernameExists(String username, String email, final AdminRegistrationFragmentListener adminRegistrationFragmentListener) {
+    public void getUsernameExists(String username, String email, final Api.AdminRegistrationFragmentListener adminRegistrationFragmentListener) {
         apiService.validateUserAndEmail(username, email).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.code() == 200) {
                     adminRegistrationFragmentListener.valid();
-                }else if(response.code() == 400){
+                } else if (response.code() == 400) {
                     adminRegistrationFragmentListener.usernameUsed();
-                }else if(response.code() == 410){
+                } else if (response.code() == 410) {
                     adminRegistrationFragmentListener.emailUsed();
                 }
             }
@@ -122,7 +123,7 @@ public class RetrofitApiImpl extends Api {
                 try {
                     JSONObject responseJson = new JSONObject(response.body().string());
                     checkUniqueListener.isUniqueIdAvailable(!responseJson.getBoolean("shopIdExist"));
-                }catch(Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -134,22 +135,33 @@ public class RetrofitApiImpl extends Api {
         });
     }
 
-
-    public void createShop(ShopInfo createShopBody, final CreateShopListener createShopListener) {
+    @Override
+    public void createShop(ShopInfo createShopBody, final Api.CreateShopListener createShopListener) {
         apiService.createShop(createShopBody).enqueue(new Callback<CreateShopResponse>() {
             @Override
             public void onResponse(Call<CreateShopResponse> call, Response<CreateShopResponse> response) {
-                try{
-                    if(response.code() == 200){
-                        createShopListener.successfullyCreatedShop(response.body());
-                    }
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
+                if(response.code() == 200)
+                    createShopListener.successfullyCreatedShop(response.body());
             }
 
             @Override
             public void onFailure(Call<CreateShopResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void getOrders(String shopId, int waterType, String status, int page, int pageSize, final Api.GetShopOrdersListener getOrdersListener) {
+        apiService.getOrders(shopId, waterType, status, page, pageSize).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                System.out.print(response.body().toString());
+                getOrdersListener.retrievedShopOrders(null);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
 
             }
         });

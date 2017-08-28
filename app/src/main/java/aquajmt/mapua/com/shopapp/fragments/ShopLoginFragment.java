@@ -116,6 +116,7 @@ public class ShopLoginFragment extends Fragment {
                     public void success(ShopLogin shopLogin, ShopInfo shopInfo) {
                         sharedPref.shopLogin = shopLogin;
                         sharedPref.shopInfo = shopInfo;
+                        sharedPref.setStringValue(sharedPref.USER, sharedPref.SHOP_ID, shopInfo.getId(), getContext());
                         sharedPref.setStringValue(sharedPref.USER, sharedPref.masterUSERNAME, loginJson.getUsername(), getContext());
                         sharedPref.setStringValue(sharedPref.USER, sharedPref.masterPASSWORD, loginJson.getPassword(), getContext());
                         listener.successfullyLoggedIn();
