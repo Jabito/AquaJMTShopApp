@@ -42,6 +42,7 @@
 
                 <TextView
                     android:text="First name"
+                    android:textColor="@color/colorPrimary"
                     style="@style/form_label" />
 
                 <EditText
@@ -58,6 +59,7 @@
 
                 <TextView
                     android:text="Middle name"
+                    android:textColor="@color/colorPrimary"
                     style="@style/form_label" />
 
                 <EditText
@@ -74,6 +76,7 @@
 
                 <TextView
                     android:text="Last name"
+                    android:textColor="@color/colorPrimary"
                     style="@style/form_label" />
 
                 <EditText

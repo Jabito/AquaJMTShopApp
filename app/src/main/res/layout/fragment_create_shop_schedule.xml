@@ -59,6 +59,7 @@
 
                 <TextView
                     android:text="Opening time"
+                    android:textColor="@color/colorPrimary"
                     style="@style/form_label" />
 
                 <EditText
@@ -84,6 +85,7 @@
 
                 <TextView
                     android:text="Closing time"
+                    android:textColor="@color/colorPrimary"
                     style="@style/form_label" />
 
                 <EditText
@@ -98,6 +100,7 @@
 
         <TextView
             android:text="Days open"
+            android:textColor="@color/colorPrimary"
             style="@style/form_label" />
 
         <TextView

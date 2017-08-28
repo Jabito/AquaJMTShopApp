@@ -24,6 +24,7 @@
 
                 <TextView
                     android:text="Create shop"
+                    android:layout_margin="10dp"
                     style="@style/form_header" />
 
                 <TextView
