@@ -14,8 +14,8 @@ import aquajmt.mapua.com.shopapp.models.ShopLogin;
 
 public abstract class Api {
 
-    public static final String API_ENDPOINT = "http://10.0.2.2:8081/";
-//    public static final String API_ENDPOINT = "http://www.aquajmt.com:8081/";
+//    public static final String API_ENDPOINT = "http://10.0.2.2:8081/";
+    public static final String API_ENDPOINT = "http://www.aquajmt.com:8081/";
     public static final String GET_SHOP_ENDPOINT = "api/shop/info";
     public static final String LOGIN_ENDPOINT = "api/loginShopUser";
     public static final String VALIDATE_REG_EMAIL = "api/shop/userExists";
