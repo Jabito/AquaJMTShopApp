@@ -48,4 +48,10 @@ public interface ApiService {
 
     @POST(Api.DECLINE_ORDER_ENDPOINT)
     Call<ResponseBody> declineOrder(@Query("id") String id);
+
+    @POST(Api.COMPLETE_ORDER_ENDPOINT)
+    Call<ResponseBody> completeOrder(@Query("id") String id);
+
+    @POST(Api.CANCEL_ORDER_ENDPOINT)
+    Call<ResponseBody> cancelOrder(@Query("id") String id, @Query("origin") String origin);
 }

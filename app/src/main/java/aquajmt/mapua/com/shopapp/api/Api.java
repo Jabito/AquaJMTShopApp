@@ -25,6 +25,8 @@ public abstract class Api {
     public static final String CREATE_SHOP_USER_ENDPOINT = "api/addShopLogin";
     public static final String ACCEPT_ORDER_ENDPOINT = "api/acceptOrder";
     public static final String DECLINE_ORDER_ENDPOINT = "api/declineOrder";
+    public static final String CANCEL_ORDER_ENDPOINT = "api/cancelOrder";
+    public static final String COMPLETE_ORDER_ENDPOINT = "api/completeOrder";
 
     public abstract void getShopInfo(String shopId, PrepareLoginFragmentListener prepareLoginFragmentListener);
     public abstract void loginShopUser(LoginJson login, ShopLoginFragmentListener shopLoginFragmentListener);
@@ -35,7 +37,9 @@ public abstract class Api {
     public abstract void createShopUser(ShopLogin shopUser, CreateShopUserListener createShopUserListener);
     public abstract void acceptOrder(String shopId, AcceptOrderListener acceptOrderListener);
     public abstract void declineOrder(String shopId, DeclineOrderListener declineOrderListener);
-    
+    public abstract void completeOrder(String id, CompleteOrderListener completeOrderListener);
+    public abstract void cancelOrder(String id, CancelOrderListener cancelOrderListener);
+
     public interface PrepareLoginFragmentListener{
         void success(ShopInfo shopInfo);
         void successWithNoAdmin(ShopInfo shopInfo);
@@ -77,6 +81,14 @@ public abstract class Api {
     }
 
     public interface DeclineOrderListener{
+        void success();
+    }
+
+    public interface CancelOrderListener {
+        void success();
+    }
+
+    public interface CompleteOrderListener {
         void success();
     }
 }

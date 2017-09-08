@@ -53,6 +53,15 @@ public class OrderInfoActivity extends AppCompatActivity {
     @BindView(R.id.btn_back)
     Button btnBack;
 
+    @BindView(R.id.btn_cancel)
+    Button btnCancel;
+
+    @BindView(R.id.btn_complete)
+    Button btnComplete;
+
+    @BindView(R.id.tv_status)
+    TextView tvStatus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +79,7 @@ public class OrderInfoActivity extends AppCompatActivity {
             tvCustomerAddress.setVisibility(View.GONE);
         else
             tvCustomerAddress.setText(currentOrder.getCustomerAddress());
-        if(currentOrder.getCustomerContact() == null)
+        if (currentOrder.getCustomerContact() == null)
             tvCustomerContact.setVisibility(View.GONE);
         else
             tvCustomerContact.setText(currentOrder.getCustomerContact());
@@ -78,10 +87,23 @@ public class OrderInfoActivity extends AppCompatActivity {
         tvSlimOrdered.setText(currentOrder.getSlimOrdered().toString());
         tvTotalCost.setText(currentOrder.getTotalCost().toString());
         tvWaterType.setText(currentOrder.getWaterType());
+        tvStatus.setText("STATUS : " + currentOrder.getStatus());
 
-        if(!currentOrder.getStatus().equalsIgnoreCase("PENDING")){
+        if (currentOrder.getStatus().equalsIgnoreCase("PENDING")) {
+            btnAccept.setVisibility(View.VISIBLE);
+            btnDecline.setVisibility(View.VISIBLE);
+            btnCancel.setVisibility(View.GONE);
+            btnComplete.setVisibility(View.GONE);
+        } else if (currentOrder.getStatus().equalsIgnoreCase("ACTIVE")) {
             btnAccept.setVisibility(View.GONE);
             btnDecline.setVisibility(View.GONE);
+            btnCancel.setVisibility(View.VISIBLE);
+            btnComplete.setVisibility(View.VISIBLE);
+        } else {
+            btnAccept.setVisibility(View.GONE);
+            btnDecline.setVisibility(View.GONE);
+            btnCancel.setVisibility(View.GONE);
+            btnComplete.setVisibility(View.GONE);
         }
     }
 
@@ -117,5 +139,29 @@ public class OrderInfoActivity extends AppCompatActivity {
     void goBackToDashboard() {
         startActivity(new Intent(OrderInfoActivity.this, DashboardActivity.class));
         finish();
+    }
+
+    @OnClick(R.id.btn_cancel)
+    void btnCancelOnClick() {
+        RetrofitApiImpl retrofitApi = new RetrofitApiImpl(Api.API_ENDPOINT);
+        retrofitApi.cancelOrder(currentOrder.getId(), new Api.CancelOrderListener() {
+
+            @Override
+            public void success() {
+                goBackToDashboard();
+            }
+        });
+    }
+
+    @OnClick(R.id.btn_complete)
+    void btnCompleteOnClick() {
+        RetrofitApiImpl retrofitApi = new RetrofitApiImpl(Api.API_ENDPOINT);
+        retrofitApi.completeOrder(currentOrder.getId(), new Api.CompleteOrderListener() {
+
+            @Override
+            public void success() {
+                goBackToDashboard();
+            }
+        });
     }
 }

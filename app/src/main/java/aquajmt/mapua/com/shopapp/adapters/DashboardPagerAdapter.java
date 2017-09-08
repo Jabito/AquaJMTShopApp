@@ -60,11 +60,11 @@ public class DashboardPagerAdapter extends FragmentPagerAdapter {
 
             int drawableResource; // TODO: assign the appropriate drawable resource ID
             if (fragment instanceof DashboardOrdersFragment) {
-                drawableResource = R.drawable.ic_close_black_24dp;
+                drawableResource = R.drawable.ic_access_time_black_24dp;
             } else if (fragment instanceof DashboardNotificationsFragment) {
-                drawableResource = R.drawable.ic_close_black_24dp;
+                drawableResource = R.drawable.ic_check_circle_black_24dp;
             } else if (fragment instanceof DashboardShopInfoFragment) {
-                drawableResource = R.drawable.ic_close_black_24dp;
+                drawableResource = R.drawable.ic_error_black_24dp;
             } else {
                 throw new AssertionError("There should be no other Fragments in DashboardPagerAdapter.");
             }

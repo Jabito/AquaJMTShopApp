@@ -216,4 +216,36 @@ public class RetrofitApiImpl extends Api {
             }
         });
     }
+
+    @Override
+    public void completeOrder(String id, final Api.CompleteOrderListener completeOrderListener) {
+        apiService.completeOrder(id).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.code() == 200)
+                    completeOrderListener.success();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void cancelOrder(String id, final Api.CancelOrderListener cancelOrderListener) {
+        apiService.cancelOrder(id, "SHOP").enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.code() == 200)
+                    cancelOrderListener.success();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+    }
 }
