@@ -23,6 +23,8 @@ public class SharedPref {
     public static String SHOP_ID = "SHOP_ID";
     public static String USER = "USER";
 
+
+
     public void setBoolValue(String Key, boolean value, Context context) {
         SharedPreferences prefs = context.getSharedPreferences(Key, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();

@@ -23,6 +23,9 @@
     <string name="uid_validation_used_text">The unique ID you have chosen is already used by another shop.</string>
     <string name="title_activity_login">Sign in</string>
 
+
+
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>

@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AquaJMTShopApp.iml" filepath="$PROJECT_DIR$/AquaJMTShopApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ShopApp.iml" filepath="$PROJECT_DIR$/ShopApp.iml" />
+      <module fileurl="file://D:\WORKS\SidelineProjects\WaterDeliverySystem\AquaJMTShopApp\ShopApp.iml" filepath="D:\WORKS\SidelineProjects\WaterDeliverySystem\AquaJMTShopApp\ShopApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
