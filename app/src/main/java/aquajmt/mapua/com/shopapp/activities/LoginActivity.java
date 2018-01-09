@@ -3,7 +3,15 @@ package aquajmt.mapua.com.shopapp.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import aquajmt.mapua.com.shopapp.R;
 import aquajmt.mapua.com.shopapp.fragments.AdminRegistrationFragment;
@@ -12,6 +20,7 @@ import aquajmt.mapua.com.shopapp.fragments.AdminRegistrationTwoFragment;
 import aquajmt.mapua.com.shopapp.fragments.PrepareLoginFragment;
 import aquajmt.mapua.com.shopapp.fragments.ShopLoginFragment;
 import aquajmt.mapua.com.shopapp.fragments.ShopUserRegistrationFragment;
+import aquajmt.mapua.com.shopapp.models.Notification;
 import aquajmt.mapua.com.shopapp.models.ShopLogin;
 import aquajmt.mapua.com.shopapp.utils.SharedPref;
 import butterknife.ButterKnife;
@@ -32,13 +41,16 @@ public class LoginActivity extends AppCompatActivity implements PrepareLoginFrag
     private ShopUserRegistrationFragment shopUserRegistrationFragment;
     private ShopLogin shopLogin;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         ButterKnife.bind(this);
         shopLogin = new ShopLogin();
+
+        Toast.makeText(LoginActivity.this,  FirebaseInstanceId.getInstance().getToken(),Toast.LENGTH_SHORT).show();
+        System.out.println("TOKEN : " + FirebaseInstanceId.getInstance().getToken());
 
         if (null != SharedPref.shopInfo.getBusinessName())
             loginPrepared(SharedPref.shopInfo.getBusinessName());
@@ -58,7 +70,9 @@ public class LoginActivity extends AppCompatActivity implements PrepareLoginFrag
                     .replace(R.id.container_fragment, prepareLoginFragment, PREPARE_LOGIN_FRAG_TAG)
                     .commit();
         }
+
     }
+
 
     @Override
     public void successfullyLoggedIn() {
