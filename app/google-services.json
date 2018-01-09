@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "1021590070325",
+    "firebase_url": "https://aqua-cc873.firebaseio.com",
+    "project_id": "aqua-cc873",
+    "storage_bucket": "aqua-cc873.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021590070325:android:ba9f7f17b7b5c732",
+        "android_client_info": {
+          "package_name": "aquajmt.mapua.com.shopapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021590070325-rb0oifihg930hhttmdjad4ej2v3nieqp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "aquajmt.mapua.com.shopapp",
+            "certificate_hash": "6211f4575edf828b2fcba478afc1e34faa8ccd0d"
+          }
+        },
+        {
+          "client_id": "1021590070325-q25nqldq3n9994e2ofdjpicq6rjmqv93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBign3V3lFeIANbmPWh_ssOafBxEdJxNYU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021590070325-q25nqldq3n9994e2ofdjpicq6rjmqv93.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021590070325:android:b788ca3c88c2e118",
+        "android_client_info": {
+          "package_name": "com.mapua.aquajmt.customerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021590070325-5vc9g9m6h3p2sua97o6d5u9icolq008g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mapua.aquajmt.customerapp",
+            "certificate_hash": "24adcd8a0986672ea08afdcf7d85224ed96d9185"
+          }
+        },
+        {
+          "client_id": "1021590070325-tep2eb2o02s7plmtkb5tumk7i18jdd7e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mapua.aquajmt.customerapp",
+            "certificate_hash": "6211f4575edf828b2fcba478afc1e34faa8ccd0d"
+          }
+        },
+        {
+          "client_id": "1021590070325-q25nqldq3n9994e2ofdjpicq6rjmqv93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBign3V3lFeIANbmPWh_ssOafBxEdJxNYU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021590070325-q25nqldq3n9994e2ofdjpicq6rjmqv93.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
