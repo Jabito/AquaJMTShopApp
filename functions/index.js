@@ -11,8 +11,8 @@ exports.pushNotification = functions.database.ref('/messages/{pushId}').onWrite(
 
     const payload = {
         notification: {
-            title: 'App Name',
-            body: "New message",
+            title: 'Order Request',
+            body: "Login to view",
             sound: "default"
         },
         data: {

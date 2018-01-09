@@ -74,21 +74,10 @@ public class LoginActivity extends AppCompatActivity implements PrepareLoginFrag
         }
 
 
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("messages");
-        subscribeToTopic();
-        sendMessage();
+
     }
 
-    public void subscribeToTopic() {
-        FirebaseMessaging.getInstance().subscribeToTopic("notifications");
-        Toast.makeText(this, "Subscribed to Topic: Notifications", Toast.LENGTH_SHORT).show();
-    }
 
-    public void sendMessage() {
-        myRef.push().setValue(new Message("TEst title", "TEST DETAILS"));
-        Toast.makeText(this, "Message Sent", Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void successfullyLoggedIn() {
